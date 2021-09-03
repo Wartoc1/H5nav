@@ -45,16 +45,34 @@ public set res(v : number) {
 onGoSecond(args: EventData){
     console.log(args.object.get("id"))
 
-    var name: string 
-    if(args.object.get("id") == "btn1")
-    name = "tal1"
-    else
-    name = "tal2"
+     var name: string 
+
+    // if(args.object.get("id") == "btn1")
+    // name = "tal1"
+    // else
+    // name = "tal2"
+
+    switch (args.object.get("value")) {
+        case "1": { //Tjekker Value og flytter dig til Hent Tal 1 page
+            name = "indsæt 1. tal"
+            activeTjek = args.object.get("value")
+            break;
+        }
+
+        case "2" : { // Tjekker Value og flytter dig til hent tal 2 page
+            name = "indsæt 2. tal"
+            activeTjek = args.object.get("value")
+            break;
+        }           
+    
+        default:
+            break;
+    }
 
     var navigationOption = {
         moduleName : "setNumber/setNumber-page",
         context: {
-            data: name,
+            name: name, //første Name var Data Test
             obs: this
         }
     }
