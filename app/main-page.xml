@@ -1,30 +1,29 @@
-<!--
-The markup in NativeScript apps contains a series of user interface components, each
-of which NativeScript renders with a platform-specific iOS or Android native control.
-You can find a full list of user interface components you can use in your app at
-https://docs.nativescript.org/ui/components.
--->
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <!--
-    The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
-    http://docs.nativescript.org/ui/action-bar
-    -->
     <ActionBar title="My App" icon="" />
 
-    <!--
-    The StackLayout stacks UI components on the screen—either vertically or horizontally.
-    In this case, the StackLayout does vertical stacking; you can change the stacking to
-    horizontal by applying a orientation="horizontal" attribute to the <StackLayout> element.
-    You can learn more about NativeScript layouts at
-    https://docs.nativescript.org/ui/layout-containers.
+ <GridLayout columns="*, *, *, *" rows="1*,2*,2*,2*,2*,2*, 6* " margin="20" padding="20" backgroundColor="lightgray">
+        
+        <Label text="Main Page" row="0" col="0" colSpan="4" backgroundColor="lightblue" class="h1 text-center" />
+        
+        <!-- 1. Tal -->
+        <Button id="btn1" text="Hent 1. Tal" row="1" col="0" colSpan="4" backgroundColor="lightgreen" tap="{{onGoSecond}}"
+        value="1" class="h2 text-center" />
+        <Label text="{{tal1}}" row="2" col="0" colSpan="4" class="h2 text-left" />
+        <Label id="FirstNum" row="2" col="1" colSpan="4" class="h2 text-center" />
 
-    These components make use of the NativeScript core theme, which styles them with element selectors.
-    The theme also provides a set of helper class names such as p-20, h1, h2, and text-center to enhance styling.
-    You can learn more about the NativeScript core theme at https://github.com/nativescript/theme
-    -->
-    <StackLayout class="p-20">
-        <Label text="Tap the button" class="h1 text-center" />
-        <Button text="TAP" tap="{{ onTap }}" class="-primary" />
-        <Label text="{{ message }}" class="h2 text-center" textWrap="true" />
-    </StackLayout>
+        <!-- 2. Tal -->
+        <Button id="btn2" text="Hent 2. Tal" row="3" col="0" colSpan="4" backgroundColor="lightgreen" tap="{{onGoSecond}}" 
+        value="2" class="h2 text-center" />
+        <Label text="{{tal2}}" row="4" col="0" colSpan="4" class="h2 text-left" />
+        <Label id="SecNum" row="4" col="1" colSpan="4" class="h2 text-center" />
+
+        <Button text="+" row="5" col="0" colSpan="1" backgroundColor="lightgreen" tap="" class="h2 text-center" />
+        <Button text="-" row="5" col="1" colSpan="1" backgroundColor="lightgreen" tap="" class="h2 text-center" />
+        <Button text="*" row="5" col="2" colSpan="1" backgroundColor="lightgreen" tap="" class="h2 text-center" />
+        <Button text="/" row="5" col="3" colSpan="1" backgroundColor="lightgreen" tap="" class="h2 text-center" />
+
+        <Label text="Result" row="6" col="0" colSpan="4" class="h2 text-left" />
+        <Label id="res" row="6" col="1" colSpan="4" class="h2 text-center" />
+
+    </GridLayout>
 </Page>
